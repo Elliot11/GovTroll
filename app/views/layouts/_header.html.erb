@@ -36,6 +36,9 @@
               <% end %>
             </li>
             <li>
+
+                  update "#{@post.title} #{post_path}"
+
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="icon-off"></i>
                 Sign out
