@@ -13,10 +13,10 @@ class Search
     results = collect_debates(topic)
     results.collect do |r|
       next unless who_said_it?(r)
-      {who_said_it:    who_said_it?(r),
-       image:          what_do_they_look_like?(r),
-       what_they_said: what_did_they_say?(r),
-       when_they_said_it: when_did_they_say_it?(r)
+      {who_said_it:            who_said_it?(r),
+       what_do_they_look_like: what_do_they_look_like?(r),
+       what_they_said:         what_did_they_say?(r),
+       when_they_said_it:      when_did_they_say_it?(r)
       }
     end
   end
@@ -51,6 +51,7 @@ class Search
   end
 
   def when_did_they_say_it?(result)
+    return '' unless result.hdate
     Date.strptime(result.hdate)
   end
 

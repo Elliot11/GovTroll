@@ -1,18 +1,16 @@
 class SearchController < ApplicationController
 
   def index
-    @search_criteria = get_params[:search_criteria]
-    # @topics = search_topics(@search_criteria)
+  end
+
+  def results
+    search_query = get_params
+    @results = Search.new.find_debates(search_query)
   end
 
   private
 
   def get_params
-    params.permit(:search_criteria)
+    params.permit(:topic)
   end
-
-  # def search_topics(topic)
-  #   api.get_hansard(search: topic)
-  # end
-
 end
