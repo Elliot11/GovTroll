@@ -20,6 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'thin'
 gem 'openaustralia', github: 'Govhack-RoRo/openaustralia-api'
+gem 'font-awesome-rails'
 
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

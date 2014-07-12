@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-      <% else %>
+      <% unless user_signed_in? %>
       <ul>
        <%= link_to "Sign up", new_user_registration_path %> |
-       <%= link_to "Login", new_user_session_path %>
-       <li><%= link_to "Twitter", user_omniauth_authorize_path(:twitter) %></li>
-       <li><%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %></li>
+       <%= link_to "Sign in", new_user_session_path %>
+       <%= link_to user_omniauth_authorize_path(:facebook), class:'btn-auth btn-facebook' do %>
+          Sign in with <b>facebook</b>
+        <% end %>
+        <%= link_to user_omniauth_authorize_path(:twitter), class:'btn-auth btn-twitter' do %>
+          Sign in with <b>twitter</b>
+        <% end %>
       </ul>
     <% end %>
     </div>
