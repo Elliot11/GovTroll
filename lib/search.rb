@@ -27,7 +27,8 @@ class Search
     total_results    = response.info.total_results
     results_per_page = response.info.results_per_age # Yes, error in OpenAustralia API
     total_pages      = total_results / results_per_page
-    pages_to_collect = total_pages < 10 ? total_pages : 10
+    #pages_to_collect = total_pages < 10 ? total_pages : 10
+    pages_to_collect = total_pages < 2 ? total_pages : 2
     unless pages_to_collect < 1
       (2..pages_to_collect).each do |page|
         next_page = api.get_hansard(search: topic, order: 'd', page: page)
