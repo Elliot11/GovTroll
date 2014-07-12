@@ -2,7 +2,7 @@ class SearchController < ApplicationController
 
   def index
     @search_criteria = get_params[:search_criteria]
-    @topics = search_topics(@search_criteria)
+    # @topics = search_topics(@search_criteria)
   end
 
   private
@@ -11,12 +11,8 @@ class SearchController < ApplicationController
     params.permit(:search_criteria)
   end
 
-  def search_topics(topic)
-    api.get_hansard(search: topic)
-  end
-
-  def api
-    @api ||= OpenAustralia::Api.new OPEN_AUSTRALIA_API_KEY
-  end
+  # def search_topics(topic)
+  #   api.get_hansard(search: topic)
+  # end
 
 end
