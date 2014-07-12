@@ -5,7 +5,7 @@ class Authentication < ActiveRecord::Base
 
   def self.find_for_oauth(auth)
     authentication = find_by provider:auth.provider, uid:auth.uid
-    authentication = create(uid:auth.uid, provider:auth.provider) if authentication.nil?
+    authentication = create(uid:auth.uid, provider:auth.provider, token:auth.credentials.token, secret:auth.credentials.secret) if authentication.nil?
     authentication
   end
 end
