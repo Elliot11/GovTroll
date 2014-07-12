@@ -43,7 +43,7 @@ class PostsController < ApplicationController
           config.access_token        = current_user.twitter.token
           config.access_token_secret = current_user.twitter.secret
         end
-        client.update "#{@post.title} #{posts_url(@post)}"
+        client.update "#{@post.title} #{post_url(@post)}"
       end
 
 
