@@ -23,5 +23,6 @@ group :test, :development do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'vcr'
+  gem 'webmock'
 end
 
