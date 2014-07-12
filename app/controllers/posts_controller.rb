@@ -5,11 +5,23 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = "pCesNqOmezM2QUK7Ig23Lo1cJ"
+      config.consumer_secret     = "qxgjsaqNBnP8xDwUjM0FmQFgFMxUXILEIYgKqFfbJE106zW1DX"
+      config.access_token        = "2620246867-ggtaJkT4QWpPnAF1LgR9oWFosDozVAwrJLhNCbC"
+      config.access_token_secret = "qmYV0J799JhjgTswgAZJjCAdX3KAF6TMG3Yr4KtOda2Za"
+    end
+
+    client.update("test")
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    #get twitter details
+
+
   end
 
   # GET /posts/new
