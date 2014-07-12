@@ -64,4 +64,13 @@ class User < ActiveRecord::Base
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
+
+  def twitter
+    self.authentications.where(:provider => 'twitter').first
+  end
+
+
+  def has_twitter?
+    twitter.present?
+  end
 end

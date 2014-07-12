@@ -6,14 +6,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
 
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = "pCesNqOmezM2QUK7Ig23Lo1cJ"
-      config.consumer_secret     = "qxgjsaqNBnP8xDwUjM0FmQFgFMxUXILEIYgKqFfbJE106zW1DX"
-      config.access_token        = "2620246867-ggtaJkT4QWpPnAF1LgR9oWFosDozVAwrJLhNCbC"
-      config.access_token_secret = "qmYV0J799JhjgTswgAZJjCAdX3KAF6TMG3Yr4KtOda2Za"
-    end
 
-    client.update("test")
+
   end
 
   # GET /posts/1
@@ -40,6 +34,19 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+
+
+      if current_user.has_twitter? == true
+        client = Twitter::REST::Client.new do |config|
+          config.consumer_key        = "pCesNqOmezM2QUK7Ig23Lo1cJ"
+          config.consumer_secret     = "qxgjsaqNBnP8xDwUjM0FmQFgFMxUXILEIYgKqFfbJE106zW1DX"
+          config.access_token        = current_user.twitter.token
+          config.access_token_secret = current_user.twitter.secret
+        end
+        client.update "#{@post.title} #{posts_url(@post)}"
+      end
+
+
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
