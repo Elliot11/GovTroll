@@ -22,14 +22,14 @@ class User < ActiveRecord::Base
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
-    # Get the authetication and user if they exist
-    authetication = Authetication.find_for_oauth(auth)
+    # Get the authentication and user if they exist
+    authentication = Authentication.find_for_oauth(auth)
 
     # If a signed_in_resource is provided it always overrides the existing user
-    # to prevent the authetication being locked with accidentally created accounts.
-    # Note that this may leave zombie accounts (with no associated authetication) which
+    # to prevent the authentication being locked with accidentally created accounts.
+    # Note that this may leave zombie accounts (with no associated authentication) which
     # can be cleaned up at a later date.
-    user = signed_in_resource ? signed_in_resource : authetication.user
+    user = signed_in_resource ? signed_in_resource : authentication.user
 
     # Create the user if needed
     if user.nil?
@@ -54,10 +54,10 @@ class User < ActiveRecord::Base
       end
     end
 
-    # Associate the authetication with the user if needed
-    if authetication.user != user
-      authetication.user = user
-      authetication.save!
+    # Associate the authentication with the user if needed
+    if authentication.user != user
+      authentication.user = user
+      authentication.save!
     end
     user
   end
