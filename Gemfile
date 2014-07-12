@@ -19,7 +19,7 @@ gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 
 #Project specific
-gem 'openaustralia'
+gem 'openaustralia', github: 'Govhack-RoRo/openaustralia-api'
 
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
