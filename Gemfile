@@ -38,5 +38,9 @@ end
 group :test do
   gem 'vcr'
   gem 'webmock'
+  gem 'sqlite3'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
 end
 
+gem 'foreigner'

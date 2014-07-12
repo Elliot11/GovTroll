@@ -9,7 +9,8 @@ development:
 
 test:
   <<: *default
-  database: GovTroll_test
+  adapter: sqlite3
+  database: db/test.sqlite3
 
 production:
   <<: *default
