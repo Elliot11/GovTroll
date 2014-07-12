@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

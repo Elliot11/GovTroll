@@ -19,6 +19,8 @@ group :development do
   gem 'spring-commands-rspec'
 end
 
+gem 'devise'
+
 gem 'less-rails'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
