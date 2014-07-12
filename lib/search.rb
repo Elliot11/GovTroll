@@ -51,6 +51,7 @@ class Search
   end
 
   def when_did_they_say_it?(result)
+    return '' unless result.hdate
     Date.strptime(result.hdate)
   end
 
