@@ -10,6 +10,14 @@ class Search
   end
 
   def find_debates(topic)
+    results = collect_debates(topic)
+    results.collect do |r|
+      next unless who_said_it?(r)
+      [who_said_it?(r), what_did_they_say?(r)]
+    end
+  end
+
+  def collect_debates(topic)
     response         = api.get_hansard(search: topic, order: 'd')
     results          = response.results
     total_results    = response.info.total_results
@@ -19,10 +27,19 @@ class Search
     unless pages_to_collect < 1
       (2..pages_to_collect).each do |page|
         next_page = api.get_hansard(search: topic, order: 'd', page: page)
-        results << next_page.results
+        results.concat next_page.results
       end
     end
     results
+  end
+
+  def who_said_it?(result)
+    return nil unless !result.speaker.nil?
+    " #{result.speaker.last_name}, #{result.speaker.first_name}"
+  end
+
+  def what_did_they_say?(result)
+    ActionController::Base.helpers.strip_tags(result.body)
   end
 
   def api
