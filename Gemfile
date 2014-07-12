@@ -15,6 +15,7 @@ gem 'rails_12factor'
 gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'therubyracer'
+gem 'twitter'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'uglifier', '>= 1.3.0'
 
