@@ -39,7 +39,7 @@ class Search
   end
 
   def what_did_they_say?(result)
-    result.body
+    ActionController::Base.helpers.strip_tags(result.body)
   end
 
   def api
