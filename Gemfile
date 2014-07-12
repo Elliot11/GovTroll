@@ -18,8 +18,10 @@ gem 'openaustralia'
 group :test, :development do
   gem 'growl'
   gem 'guard-rspec'
+  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'vcr'
 end
 
