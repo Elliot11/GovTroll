@@ -75,6 +75,9 @@ GEM
     mime-types (1.25.1)
     minitest (5.4.0)
     multi_json (1.10.1)
+    openaustralia (1.0.0)
+      rake
+      xml-mapping
     pg (0.17.1)
     polyglot (0.3.5)
     pry (0.10.0)
@@ -159,6 +162,7 @@ GEM
     uglifier (2.5.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    xml-mapping (0.9.1)
 
 PLATFORMS
   ruby
@@ -169,6 +173,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  openaustralia
   pg
   rails (= 4.1.1)
   rspec-rails

@@ -11,6 +11,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'uglifier', '>= 1.3.0'
 
 
+#Project specific
+
+gem 'openaustralia'
+
 group :test, :development do
   gem 'growl'
   gem 'guard-rspec'
