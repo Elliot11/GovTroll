@@ -18,7 +18,7 @@ gem 'therubyracer'
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 
-
+gem 'thin'
 gem 'openaustralia', github: 'Govhack-RoRo/openaustralia-api'
 
 group :development do
