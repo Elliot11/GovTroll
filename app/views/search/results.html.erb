@@ -1,0 +1,22 @@
+<% @results.each_with_index do |result, index| %>
+    <% next if result.nil? %>
+    <div class="row success">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">
+            <h4><%= result[:who_said_it] %>
+              <small><%= time_ago_in_words result[:when_they_said_it] %> ago</small>
+            </h4>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="col-md-2">
+            <img class="img-responsive img-thumbnail" src="<%= result[:what_do_they_look_like] %>" alt=""/>
+          </div>
+          <div class="col-md-10">
+            <%= result[:what_they_said].html_safe %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
