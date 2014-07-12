@@ -20,6 +20,8 @@ group :development do
 end
 
 gem 'devise'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 gem 'less-rails'
 gem 'therubyracer'
@@ -27,5 +29,6 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 
 #Project specific
 gem 'openaustralia'
+
 
 ruby '2.1.2'
