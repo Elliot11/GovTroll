@@ -14,8 +14,6 @@ Devise.setup do |config|
 
   #production environment
   config.omniauth :facebook, "679230342168598", "e7431c77518db56d3ccb40c2f37cc541"
-  #test env
-  #config.omniauth :facebook, "679266845498281", "64cdaf77b9a0fdb75c2f9c6f28b04e50"
   config.omniauth :twitter, "pCesNqOmezM2QUK7Ig23Lo1cJ", "qxgjsaqNBnP8xDwUjM0FmQFgFMxUXILEIYgKqFfbJE106zW1DX"
 
   # Configure the class responsible to send e-mails.

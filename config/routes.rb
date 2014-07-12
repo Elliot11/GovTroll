@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
+  match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
   root 'home#index'
 end
