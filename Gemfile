@@ -6,6 +6,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem "koala", "~> 1.10.0rc"
 gem 'less-rails'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
