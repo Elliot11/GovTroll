@@ -2,13 +2,16 @@ class AuthenticationsController < ApplicationController
   before_action :set_authentication, only: [:show, :edit, :update, :destroy]
 
   def home
- 
   end
 
   # GET /authentications
   # GET /authentications.json
   def index
     @authentications = Authentication.all
+  end
+
+  def twitter
+    raise omni = request.env["omniauth.auth"].to_yaml
   end
 
   # GET /authentications/1
