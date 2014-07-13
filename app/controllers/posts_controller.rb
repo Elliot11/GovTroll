@@ -18,6 +18,12 @@ class PostsController < ApplicationController
     @post = current_user.posts.new
   end
 
+  # GET /posts/modal
+  def modal
+    @post = current_user.posts.new
+    render partial:'modal', locals:{post:@post}, layout: nil
+  end
+
   # GET /posts/1/edit
   def edit
   end

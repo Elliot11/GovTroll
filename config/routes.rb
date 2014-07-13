@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+
   resources :posts
+  get 'post/modal', to:'posts#modal', as: :post_modal
 
   get 'search', to: 'search#index'
   get 'search/results', to: 'search#results'
@@ -10,4 +12,6 @@ Rails.application.routes.draw do
 
   get 'guide', to: 'home#guide'
   root 'home#index'
+
+  get 'sign_up/modal', to:'home#sign_up_modal', as: :sign_up_modal
 end

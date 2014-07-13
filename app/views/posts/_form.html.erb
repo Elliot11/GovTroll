@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5">
-      <%= form_for @post, html:{role: :form} do |f| %>
+      <%= form_for post, html:{role: :form} do |f| %>
 
         <%= f.hidden_field :user_id, value:current_user.id %>
 
-        <%= tb_show_errors_for @post %>
+        <%= tb_show_errors_for post %>
 
         <div class="form-group <%= tb_has_error @post, :title %>">
           <%= f.label :title %><br>
