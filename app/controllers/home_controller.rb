@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
 	def index
-		#render layout: false
+		@posts = Post.all.first(5)
 	end
 
 end
