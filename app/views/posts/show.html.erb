@@ -1,16 +1,35 @@
-</p>
-  <img src="<%= @post.user.picture %>">
-<p>
+<div class="container">
+	<div class="col-md-3">
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <div class="panel-title">
+		      <h4><%= @post.user.name %></h4>
+		    </div>
+		  </div>
+		  <div class="panel-body">
+		    <div class="row">
+		      <div class="col-md-12">
+		        <center>
+		        <%= image_tag(@post.user.picture, :class => "img-responsive img-thumbnail") %>
+		        </center>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+	<div class="col-md-9">
+		<p>
+		  <h3>
+		  <%= @post.title %>
+		</h3>
+		</p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+		<p>
+		  <%= @post.content %>
+		</p>
 
-<%# link_to 'Edit', edit_post_path(@post), class:'btn btn-primary' if @post.user == current_user %>
-<%= link_to 'Back', posts_path, class:'btn btn-primary' %>
+		<%# link_to 'Edit', edit_post_path(@post), class:'btn btn-primary' if @post.user == current_user %>
+		<%= link_to 'Back', posts_path, class:'btn btn-primary' %>
+	</div>
+</div>

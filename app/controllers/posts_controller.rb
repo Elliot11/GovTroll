@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = Post.new post_params
     respond_to do |format|
       if @post.save
         if current_user.has_twitter? == true
@@ -85,6 +85,9 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :user_id)
+      params.require(:post).permit(:title,
+                                   :content,
+                                   :user_id,
+                                   targets_ids: [])
     end
 end

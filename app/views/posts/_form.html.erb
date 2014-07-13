@@ -5,6 +5,10 @@
 
         <%= f.hidden_field :user_id, value:current_user.id %>
 
+        <% post.targets.each do |target| %>
+          <%= f.hidden_field :targets_ids, multiple:true, value:target.id %>
+        <% end %>
+
         <%= tb_show_errors_for post %>
 
         <div class="form-group <%= tb_has_error @post, :title %>">
