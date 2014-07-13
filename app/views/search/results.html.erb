@@ -1,28 +1,35 @@
-<% @results.each do |result| %>
-    <% next if result.nil? %>
-    <div class="row success">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <div class="panel-title">
-            <h4><%= result[:who_said_it] %> - <%= result[:what_is_their_party] %>
-              <small><%= time_ago_in_words result[:when_they_said_it] %> ago</small>
-            </h4>
-          </div>
-          <small>
-            <% result[:what_is_their_position].each do |p| %>
-                <%= p %>
+<%= form_tag post_modal_path, remote:true, class:'post-form' do %>
+
+  <%= fields_for Post.new do |f| %>
+
+    <% @results.each do |result| %>
+      <% next if result.nil? %>
+      <div class="row success">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="panel-title">
+              <h4><%= result[:who_said_it] %> - <%= result[:what_is_their_party] %>
+                <small><%= time_ago_in_words result[:when_they_said_it] %> ago</small>
+              </h4>
+            </div>
+            <small>
+              <% result[:what_is_their_position].each do |position| %>
+                <%= position %>
                 <br/>
-            <% end %>
-          </small>
-        </div>
-        <div class="panel-body">
-          <div class="col-md-2">
-            <img class="img-responsive img-thumbnail" src="<%= result[:what_do_they_look_like] %>" alt=""/>
+              <% end %>
+            </small>
           </div>
-          <div class="col-md-10">
-            <%= result[:what_they_said].html_safe %>
+          <div class="panel-body">
+            <div class="col-md-2">
+              <%= check_box_tag 'post[targets_ids]', result[:id], false, class:'targets' %>
+              <img class="img-responsive img-thumbnail" src="<%= result[:what_do_they_look_like] %>" alt=""/>
+            </div>
+            <div class="col-md-10">
+              <%= result[:what_they_said].html_safe %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
+  <% end %>
 <% end %>

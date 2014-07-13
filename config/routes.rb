@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :posts
-  get 'post/modal', to:'posts#modal', as: :post_modal
+  post 'post/modal', to:'posts#modal', as: :post_modal
 
   get 'search', to: 'search#index'
   get 'search/results', to: 'search#results'

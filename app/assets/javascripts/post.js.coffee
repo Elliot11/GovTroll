@@ -11,7 +11,11 @@ class GovTroll.Post
     @bind()
 
   bind: ->
-    @$gov_troll.on 'ajax:success', '.post-modal', @open
+    @$gov_troll.on 'click', '.post-modal', @click
+    @$gov_troll.on 'ajax:success', '.post-form', @open
+
+  click: (e) =>
+    $('.gov-troll .post-form').submit()
 
   open: (e, data, status, xhr) =>
     console.log "post: open modal fired!"
