@@ -29,7 +29,9 @@
     <tbody>
       <% @posts.each do |post| %>
         <tr>
-          <td><%= link_to post.user.name %></td>
+          <td>
+            <%= image_tag post.user.picture %>
+            <%= link_to post.user.name %></td>
           <td><%= link_to post.title %></td>
         </tr>
       <% end %>
@@ -63,7 +65,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <h2>GovHack Troll Folk:</h2>
+      <h2>GovHack Trollfolk:</h2>
 
       <div class="col-md-3">
         <div class="panel panel-default">
