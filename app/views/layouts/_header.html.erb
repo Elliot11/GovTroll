@@ -31,10 +31,10 @@
         <li>
           <div style="margin-top: 4px;">
             <% if user_signed_in? %>
-              <%= link_to post_modal_path, class:'btn btn-success post-modal', role:'button', remote:true do %>
+              <a href="JavaScript:void(0);" class="btn btn-success post-modal" role="button">
                 Troll
                 <i class="fa fa-comment"></i>
-              <% end %>
+              </a>
             <% else %>
               <%= link_to sign_up_modal_path, class:'btn btn-success sign-up-modal', role:'button', remote:true do %>
                 Troll
