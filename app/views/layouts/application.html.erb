@@ -37,9 +37,13 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body>
+    <%= render partial:'layouts/header' %>
     <div class="container">
-      <%= render partial:'layouts/header' %>
-      <%= yield %>
+      <div class="row">
+        <div class="col-md-12">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>
