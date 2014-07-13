@@ -5,22 +5,17 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-
-
-
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
     #get twitter details
-
-
   end
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
 
   # GET /posts/1/edit
@@ -31,21 +26,17 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
     respond_to do |format|
       if @post.save
-
-
-      if current_user.has_twitter? == true
-        client = Twitter::REST::Client.new do |config|
-          config.consumer_key        = "pCesNqOmezM2QUK7Ig23Lo1cJ"
-          config.consumer_secret     = "qxgjsaqNBnP8xDwUjM0FmQFgFMxUXILEIYgKqFfbJE106zW1DX"
-          config.access_token        = current_user.twitter.token
-          config.access_token_secret = current_user.twitter.secret
+        if current_user.has_twitter? == true
+          client = Twitter::REST::Client.new do |config|
+            config.consumer_key        = "pCesNqOmezM2QUK7Ig23Lo1cJ"
+            config.consumer_secret     = "qxgjsaqNBnP8xDwUjM0FmQFgFMxUXILEIYgKqFfbJE106zW1DX"
+            config.access_token        = current_user.twitter.token
+            config.access_token_secret = current_user.twitter.secret
+          end
+          client.update("#{@post.title} #{post_url(@post)}")
         end
-        client.update "#{@post.title} #{post_url(@post)}"
-      end
-
 
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
@@ -88,6 +79,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :user_id)
     end
 end

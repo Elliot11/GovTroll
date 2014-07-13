@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_REGEX = /\Achange@me/
 
   has_many :authentications
+  has_many :posts
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -46,6 +47,7 @@ class User < ActiveRecord::Base
         user = User.new(
           name: auth.extra.raw_info.name,
           #username: auth.info.nickname || auth.uid,
+          picture: auth.extra.raw_info.profile_image_url,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]
         )
@@ -68,7 +70,6 @@ class User < ActiveRecord::Base
   def twitter
     self.authentications.where(:provider => 'twitter').first
   end
-
 
   def has_twitter?
     twitter.present?

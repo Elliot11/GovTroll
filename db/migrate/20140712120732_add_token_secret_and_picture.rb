@@ -1,4 +1,4 @@
-class Addtokensecretandpicture < ActiveRecord::Migration
+class AddTokenSecretAndPicture < ActiveRecord::Migration
   def change
   	add_column :users, :picture, :string
   	add_column :authentications, :token, :string
