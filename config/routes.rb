@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
 
   get 'guide', to: 'home#guide'
+  get 'video', to: 'home#video'
   root 'home#index'
 
   get 'sign_up/modal', to:'home#sign_up_modal', as: :sign_up_modal

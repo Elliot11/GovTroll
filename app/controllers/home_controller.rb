@@ -8,6 +8,10 @@ class HomeController < ApplicationController
 
   end
 
+  def video
+  end
+  
+
   def sign_up_modal
     render partial:'modal', layout: nil
   end
