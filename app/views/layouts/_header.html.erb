@@ -16,12 +16,33 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "Posts", posts_path %></li>
       </ul>
-      <%= form_tag('/search/results', {method: :get, class: 'navbar-form navbar-left', role: 'search'}) do %>
+      <%= form_tag('/search/results', {method: :get, class:'navbar-form navbar-left', role:'search'}) do %>
         <div class="form-group">
           <input type="text" placeholder="Search" name="topic" class="form-control"/>
-          <button type="submit" class="btn btn-success">Troll Search</button>
+          <button type="submit" class="btn btn-success">
+            Troll Search
+            <i class="fa fa-search"></i>
+          </button>
         </div>
       <% end %>
+
+      <ul class="nav navbar-nav">
+        <li>
+          <div style="margin-top: 4px;">
+            <% if user_signed_in? %>
+              <%= link_to post_modal_path, class:'btn btn-success post-modal', role:'button', remote:true do %>
+                Troll
+                <i class="fa fa-comment"></i>
+              <% end %>
+            <% else %>
+              <%= link_to sign_up_modal_path, class:'btn btn-success sign-up-modal', role:'button', remote:true do %>
+                Troll
+                <i class="fa fa-comment"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </li>
+      </ul>
 
       <% if user_signed_in? %>
         <div class="btn-group pull-right">
