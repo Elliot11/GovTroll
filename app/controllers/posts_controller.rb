@@ -21,7 +21,17 @@ class PostsController < ApplicationController
   # GET /posts/modal
   def modal
     @post = current_user.posts.new
-    render partial:'modal', locals:{post:@post}, layout: nil
+
+    targets_ids = []
+    unless params[:post].nil?
+      unless params[:post][:targets_ids].nil?
+        params[:post][:targets_ids].each do |person_id|
+          targets_ids << Target.find_or_create_by(person_id: person_id)
+        end
+      end
+    end
+
+    render partial:'modal', locals:{post:@post, targets:targets_ids}, layout:nil
   end
 
   # GET /posts/1/edit
