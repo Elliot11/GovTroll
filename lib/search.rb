@@ -56,9 +56,7 @@ class Search
     Date.strptime(result.hdate)
   end
 
-
   def api
     @api ||= OpenAustralia::Api.new api_key
   end
-
 end
