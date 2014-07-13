@@ -32,6 +32,7 @@ group :development do
   gem 'guard-rspec'
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'spring-commands-rspec'
 end
 
@@ -40,7 +41,6 @@ group :test do
   gem 'webmock'
   gem 'sqlite3'
   gem 'factory_girl_rails'
-  gem 'shoulda-matchers'
 end
 
 gem 'foreigner'
