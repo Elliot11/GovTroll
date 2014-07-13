@@ -1,4 +1,4 @@
-<% @results.each_with_index do |result, index| %>
+<% @results.each do |result| %>
     <% next if result.nil? %>
     <div class="row success">
       <div class="panel panel-default">
@@ -9,7 +9,7 @@
             </h4>
           </div>
           <small>
-            <% result[:what_is_their_position].each_with_index do |p| %>
+            <% result[:what_is_their_position].each do |p| %>
                 <%= p %>
                 <br/>
             <% end %>
