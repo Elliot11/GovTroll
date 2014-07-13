@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
              controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
+
+  get 'guide', to: 'home#guide'
   root 'home#index'
 
   get 'sign_up/modal', to:'home#sign_up_modal', as: :sign_up_modal

@@ -4,6 +4,10 @@ class HomeController < ApplicationController
   	@posts = Post.all.first(5)
   end
 
+  def guide
+
+  end
+
   def sign_up_modal
     render partial:'modal', layout: nil
   end
