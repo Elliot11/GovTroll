@@ -18,7 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Custom Gems
 
-gem 'openaustralia', github: 'Govhack-RoRo/openaustralia-api'
+gem 'openaustralia'
 
 
 group :development do
