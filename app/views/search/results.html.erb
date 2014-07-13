@@ -1,7 +1,5 @@
 <%= form_tag post_modal_path, remote:true, class:'post-form' do %>
-
   <%= fields_for Post.new do |f| %>
-
     <% @results.each do |result| %>
       <% next if result.nil? %>
       <div class="row success">
@@ -21,7 +19,7 @@
           </div>
           <div class="panel-body">
             <div class="col-md-2">
-              <%= check_box_tag 'post[targets_ids]', result[:id], false, class:'targets' %>
+              <%= check_box_tag 'post[targets_ids][]', result[:id], false, class:'targets' %>
               <img class="img-responsive img-thumbnail" src="<%= result[:what_do_they_look_like] %>" alt=""/>
             </div>
             <div class="col-md-10">

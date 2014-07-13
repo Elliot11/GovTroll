@@ -7,10 +7,20 @@
         <h4 class="modal-title">Are you angry?</h4>
       </div>
       <div class="modal-body">
-        <%= render partial:'form', locals:{post:post}%>
+        <% if targets.empty? %>
+          <div class="alert alert-danger" role="alert">
+            <strong>Oh snap!</strong> Select some MPs to troll please :)
+          </div>
+        <% else %>
+          <%= render partial:'form', locals:{post:post, targets:targets, is_modal:true}%>
+        <% end %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Troll!</button>
+        <% if targets.empty? %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close!</button>
+        <% else %>
+          <button type="button" class="btn btn-primary troll">Troll!</button>
+        <% end %>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
