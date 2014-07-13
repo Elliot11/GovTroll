@@ -14,6 +14,8 @@ class Search
     results.collect do |r|
       next unless who_said_it?(r)
       {who_said_it:            who_said_it?(r),
+       first_name: first_name(r),
+       last_name: last_name(r),
        what_do_they_look_like: what_do_they_look_like?(r),
        what_they_said:         what_did_they_say?(r),
        when_they_said_it:      when_did_they_say_it?(r),
@@ -28,6 +30,13 @@ class Search
     result.speaker.person_id
   end
 
+  def last_name(result)
+    result.speaker.last_name
+  end
+
+  def first_name(result)
+    result.speaker.first_name
+  end
   def what_is_their_party?(result)
     return '' unless result.speaker.party
     "#{result.speaker.party}"
