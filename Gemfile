@@ -10,7 +10,7 @@ gem 'koala', '~> 1.10.0rc'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'pg'
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.4'
 gem 'rails_12factor'
 gem 'thin'
 gem 'twitter'
@@ -18,7 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Custom Gems
 
-gem 'openaustralia', github: 'Govhack-RoRo/openaustralia-api'
+gem 'openaustralia'
 
 
 group :development do
