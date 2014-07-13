@@ -1,0 +1,26 @@
+<!-- Shopping cart Modal -->
+<div class="modal fade sign_up" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Are you angry?</h4>
+      </div>
+      <div class="modal-body">
+        <%= link_to 'Sign up', new_user_registration_path, class:'btn btn-primary btn-sm' %>
+        &nbsp;
+        <%= link_to 'Sign in', new_user_session_path, class:'btn btn-primary btn-sm' %>
+        <%= link_to user_omniauth_authorize_path(:facebook), class:'btn-auth btn-facebook' do %>
+          Sign in with <b>facebook</b>
+        <% end %>
+        <%= link_to user_omniauth_authorize_path(:twitter), class:'btn-auth btn-twitter' do %>
+          Sign in with <b>twitter</b>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- Model End -->
