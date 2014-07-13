@@ -13,4 +13,8 @@ class Post < ActiveRecord::Base
   validates :content,
             length: {maximum: 1000},
             presence: true
+
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
 end
