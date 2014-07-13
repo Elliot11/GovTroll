@@ -4,10 +4,16 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <div class="panel-title">
-            <h4><%= result[:who_said_it] %>
+            <h4><%= result[:who_said_it] %> - <%= result[:what_is_their_party] %>
               <small><%= time_ago_in_words result[:when_they_said_it] %> ago</small>
             </h4>
           </div>
+          <small>
+            <% result[:what_is_their_position].each_with_index do |p| %>
+                <%= p %>
+                <br/>
+            <% end %>
+          </small>
         </div>
         <div class="panel-body">
           <div class="col-md-2">
