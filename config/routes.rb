@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :contacts
+
   resources :posts
   post 'post/modal', to:'posts#modal', as: :post_modal
 
