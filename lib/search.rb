@@ -16,9 +16,27 @@ class Search
       {who_said_it:            who_said_it?(r),
        what_do_they_look_like: what_do_they_look_like?(r),
        what_they_said:         what_did_they_say?(r),
-       when_they_said_it:      when_did_they_say_it?(r)
+       when_they_said_it:      when_did_they_say_it?(r),
+       what_is_their_position: what_is_their_position?(r),
+       what_is_their_party: what_is_their_party?(r),
+       id: person_id(r)
       }
     end
+  end
+
+  def person_id(result)
+    result.speaker.person_id
+  end
+
+  def what_is_their_party?(result)
+    return '' unless result.speaker.party
+    "#{result.speaker.party}"
+  end
+
+  def what_is_their_position?(result)
+    return [] unless result.speaker.offices.length > 0
+    offices = result.speaker.offices
+    offices.collect {|o| o.position}
   end
 
   def collect_debates(topic)
