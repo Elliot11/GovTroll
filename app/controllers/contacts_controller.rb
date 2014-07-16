@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts
   def index
-    @contacts = Contact.all
+    @contacts = Contact.all.decorate
   end
 
   # GET /contacts/1
@@ -48,7 +48,7 @@ class ContactsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
-      @contact = Contact.find(params[:id])
+      @contact = Contact.find(params[:id]).decorate
     end
 
     # Only allow a trusted parameter "white list" through.
