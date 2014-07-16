@@ -1,3 +1,10 @@
+# Attributes:
+# * id [integer, primary, not null] - primary key
+# * content [text] - TODO: document me
+# * created_at [datetime] - creation time
+# * title [string]
+# * updated_at [datetime] - last update time
+# * user_id [integer] - belongs to :user
 class Post < ActiveRecord::Base
 
   belongs_to :user

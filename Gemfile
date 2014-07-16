@@ -2,8 +2,10 @@ source 'https://rubygems.org'
 
 ruby '2.1.2'
 
+gem 'annotator'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
+gem 'draper'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'foreigner'
