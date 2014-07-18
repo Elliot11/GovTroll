@@ -17,4 +17,14 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'sign_up/modal', to:'home#sign_up_modal', as: :sign_up_modal
+
+  namespace :api do
+    namespace :v1 do
+      namespace :open_australia_proxy do
+        get :representatives
+      end
+    end
+  end
+
+
 end
