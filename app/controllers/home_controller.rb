@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-  	@posts = Post.all.first(5)
+  	@posts = Post.all.order(created_at: :desc).first(5)
   end
 
   def guide
