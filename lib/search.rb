@@ -9,6 +9,10 @@ class Search
     api.get_representatives
   end
 
+  def get_senators
+    api.get_senators
+  end
+
   def find_debates(topic)
     results = collect_debates(topic)
     results.collect do |r|
