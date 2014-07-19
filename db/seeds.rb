@@ -15,3 +15,4 @@ file = Rails.root.join('db', 'mp.csv')
 CSV.foreach(file, headers: true) do |line|
   create_new_contact(line) unless Contact.where(first_name: line['first_name'], last_name: line['last_name']).size >= 1
 end
+
