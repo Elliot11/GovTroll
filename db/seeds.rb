@@ -32,15 +32,15 @@ representatives.each do |rep|
   end
 end
 
-# senators.each do |rep|
-#   contact = Contact.where(first_name: rep.first_name.capitalize, last_name: rep.last_name.capitalize).first
-#   if contact.nil?
-#     failures << rep
-#   else
-#     contact.person_id = rep.person_id
-#     contact.save
-#   end
-# end
+senators.each do |rep|
+  contact = Contact.where(first_name: rep.first_name.capitalize, last_name: rep.last_name.capitalize).first
+  if contact.nil?
+    failures << rep
+  else
+    contact.person_id = rep.person_id
+    contact.save
+  end
+end
 
 failures.each do |f|
   puts "#{f.last_name}, #{f.first_name}"
