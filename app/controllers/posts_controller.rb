@@ -18,6 +18,28 @@ class PostsController < ApplicationController
     @post = current_user.posts.new
   end
 
+  # GET /posts/1/edit
+  def edit
+  end
+
+  # POST /posts
+  # POST /posts.json
+  def create
+    @post = Post.new post_params
+    respond_to do |format|
+      if @post.save
+
+        tweet @post
+
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @post }
+      else
+        format.html { render :new }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # GET /posts/modal
   def modal
     @post = current_user.posts.new
@@ -34,32 +56,26 @@ class PostsController < ApplicationController
     render partial:'modal', locals:{post:@post, targets:targets_ids}, layout:nil
   end
 
-  # GET /posts/1/edit
-  def edit
+  # POST post/modal/create
+  def troll
+    @post = Post.new post_params
+    if @post.save
+      tweet @post
+      render post_url(@post), layout:nil
+    else
+      render partial:'modal_form', locals:{post:@post, targets:[]}, layout:nil, status: :unprocessable_entity
+    end
   end
 
-  # POST /posts
-  # POST /posts.json
-  def create
-    @post = Post.new post_params
-    respond_to do |format|
-      if @post.save
-        if current_user.has_twitter? == true
-          client = Twitter::REST::Client.new do |config|
-            config.consumer_key        = "pCesNqOmezM2QUK7Ig23Lo1cJ"
-            config.consumer_secret     = "qxgjsaqNBnP8xDwUjM0FmQFgFMxUXILEIYgKqFfbJE106zW1DX"
-            config.access_token        = current_user.twitter.token
-            config.access_token_secret = current_user.twitter.secret
-          end
-          client.update("#{@post.title} #{post_url(@post)}")
-        end
-
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+  def tweet post
+    if current_user.has_twitter? == true
+      client = Twitter::REST::Client.new do |config|
+        config.consumer_key        = "pCesNqOmezM2QUK7Ig23Lo1cJ"
+        config.consumer_secret     = "qxgjsaqNBnP8xDwUjM0FmQFgFMxUXILEIYgKqFfbJE106zW1DX"
+        config.access_token        = current_user.twitter.token
+        config.access_token_secret = current_user.twitter.secret
       end
+      client.update("#{post.title} #{post_url(post)}")
     end
   end
 
