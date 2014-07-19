@@ -15,6 +15,7 @@ Devise.setup do |config|
   #production environment
   config.omniauth :facebook, "679230342168598", "e7431c77518db56d3ccb40c2f37cc541"
   config.omniauth :twitter, "pCesNqOmezM2QUK7Ig23Lo1cJ", "qxgjsaqNBnP8xDwUjM0FmQFgFMxUXILEIYgKqFfbJE106zW1DX"
+  config.omniauth :google_oauth2, "967193039624-tri26ufnrfes7i9h936knkjk2bj582am.apps.googleusercontent.com", "aERIZUMQbXfYH-GOMlb5_R-b"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

@@ -10,6 +10,9 @@
         <% end %>
         <%= link_to user_omniauth_authorize_path(:twitter), class:'btn-auth btn-twitter' do %>
           Sign in with <b>twitter</b>
+          <% end %>
+        <%= link_to user_omniauth_authorize_path(:google_oauth2), class:'btn-auth btn-google' do %>
+          Sign in with <b>Google</b>
         <% end %>
       </ul>
     <% end %>
