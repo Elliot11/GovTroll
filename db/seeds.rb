@@ -23,8 +23,9 @@ senators = search.get_senators
 failures = []
 
 representatives.each do |rep|
-  contact = Contact.where(first_name: rep.first_name.capitalize, last_name: rep.last_name.capitalize).first
+  contact = Contact.where(first_name: rep.first_name, last_name: rep.last_name).first
   if contact.nil?
+    Contact.create(first_name: rep.first_name, last_name: rep.last_name, person_id: rep.person_id)
     failures << rep
   else
     contact.person_id = rep.person_id
@@ -33,8 +34,9 @@ representatives.each do |rep|
 end
 
 senators.each do |rep|
-  contact = Contact.where(first_name: rep.first_name.capitalize, last_name: rep.last_name.capitalize).first
+  contact = Contact.where(first_name: rep.first_name, last_name: rep.last_name).first
   if contact.nil?
+    Contact.create(first_name: rep.first_name, last_name: rep.last_name, person_id: rep.person_id)
     failures << rep
   else
     contact.person_id = rep.person_id
