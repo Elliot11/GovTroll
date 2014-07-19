@@ -2,32 +2,24 @@
   <div class="row">
     <div class="col-md-5">
       <%= form_for post, html:{role: :form} do |f| %>
-
         <%= f.hidden_field :user_id, value:current_user.id %>
-
         <% if targets.any? %>
           <% targets.each do |target| %>
             <%= f.hidden_field :targets_ids, multiple:true, value:target.id %>
           <% end %>
         <% end %>
-
         <%= tb_show_errors_for post %>
-
         <div class="form-group <%= tb_has_error @post, :title %>">
           <%= f.label :title %><br>
           <%= f.text_field :title, class:'form-control' %>
         </div>
-
         <div class="form-group <%= tb_has_error @post, :content %>">
           <%= f.label :content %><br>
           <%= f.text_area :content, class:'form-control' %>
         </div>
-
-        <% unless defined?(is_modal) %>
-          <div class="form-group">
-            <%= f.submit class:'btn btn-primary' %>
-          </div>
-        <% end %>
+        <div class="form-group">
+          <%= f.submit class:'btn btn-primary' %>
+        </div>
       <% end %>
     </div>
   </div>

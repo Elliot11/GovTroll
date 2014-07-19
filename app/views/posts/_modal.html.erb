@@ -1,4 +1,4 @@
-<!-- Shopping cart Modal -->
+<!-- Post Modal -->
 <div class="modal fade post" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -7,13 +7,7 @@
         <h4 class="modal-title">Are you angry?</h4>
       </div>
       <div class="modal-body">
-        <% if targets.empty? %>
-          <div class="alert alert-danger" role="alert">
-            <strong>Oh snap!</strong> Select some MPs to troll please :)
-          </div>
-        <% else %>
-          <%= render partial:'form', locals:{post:post, targets:targets, is_modal:true}%>
-        <% end %>
+        <%= render partial:'modal_form', locals:{post:post, targets:targets} %>
       </div>
       <div class="modal-footer">
         <% if targets.empty? %>
