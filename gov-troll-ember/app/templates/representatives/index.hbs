@@ -1,0 +1,7 @@
+<ul>
+  {{#each}}
+    <li>{{#link-to 'representatives.show' this}}{{last_name}}, {{first_name}}{{/link-to}}</li>
+  {{/each}}
+</ul>
+
+{{outlet}}
