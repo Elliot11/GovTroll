@@ -1,0 +1,6 @@
+<h4>Represenatives</h4>
+<ul class="list-unstyled">
+  {{#each representatives}}
+    <li>{{#link-to 'representatives.show' this}}{{last_name}}, {{first_name}}{{/link-to}}</li>
+  {{/each}}
+</ul>
