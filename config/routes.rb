@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       namespace :open_australia_proxy, defaults: {format: :json} do
         get :representatives
+        get 'representatives/:id', to: :representative
       end
     end
   end
