@@ -1,5 +1,13 @@
-<h2 id='title'>Welcome to Ember.js</h2>
+<div class="container-fluid">
+    <h2 id='title'>Welcome to Ember.js</h2>
 
-{{representative-sidebar representatives=model}}
+    <div class="row">
+        <div class="col-md-2">
+            {{representative-sidebar representatives=controller}}
+        </div>
+        <div class="col-md-10">
+            {{outlet}}
+        </div>
+    </div>
+</div>
 
-{{outlet}}

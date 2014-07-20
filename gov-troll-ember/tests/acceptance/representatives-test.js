@@ -12,16 +12,8 @@ module('Acceptance: Representatives', {
   }
 });
 
-test('visiting /representatives', function() {
-  visit('/representatives');
-
-  andThen(function() {
-    equal(currentPath(), 'representatives.index');
-  });
-});
-
-test('visiting /representatives/1', function() {
-  visit('/representatives/1');
+test('visiting /representatives/10562', function() {
+  visit('/representatives/10562');
   andThen(function() {
     equal(currentPath(), 'representatives.show');
   });
