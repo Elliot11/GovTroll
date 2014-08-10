@@ -12,7 +12,7 @@ describe MessagePoster do
     it 'creates a TwitterPoster when the contact has a twitter account' do
       message_poster = MessagePoster.new(@user, @contact_with_twitter, @post)
       message_poster.send(:create_posters)
-      expect(message_poster.posters.first).to be_an_instance_of TwitterPoster
+      expect(message_poster.posters.first).to be_an_instance_of Posters::Twitter
     end
 
   end
@@ -27,7 +27,7 @@ describe MessagePoster do
     it 'creates a FacebookPoster when the contact has a facebook account' do
       message_poster = MessagePoster.new(@user, @contact_with_facebook, @post)
       message_poster.send(:create_posters)
-      expect(message_poster.posters.first).to be_an_instance_of FacebookPoster
+      expect(message_poster.posters.first).to be_an_instance_of Posters::Facebook
     end
 
   end
@@ -42,7 +42,7 @@ describe MessagePoster do
     it 'creates an EmailPoster when the contact has a email account' do
       message_poster = MessagePoster.new(@user, @contact_with_email, @post)
       message_poster.send(:create_posters)
-      expect(message_poster.posters.first).to be_an_instance_of EmailPoster
+      expect(message_poster.posters.first).to be_an_instance_of Posters::Email
     end
 
   end

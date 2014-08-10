@@ -11,15 +11,15 @@ class MessagePoster
   def create_posters
     @contacts.each do |contact|
       unless contact.twitter.blank?
-        posters << TwitterPoster.new(contact, post)
+        posters << Posters::Twitter.new(contact, post)
       end
 
       unless contact.facebook.blank?
-        posters << FacebookPoster.new(contact, post)
+        posters << Posters::Facebook.new(contact, post)
       end
 
       unless contact.email.blank?
-        posters << EmailPoster.new(contact, post)
+        posters << Posters::Email.new(contact, post)
       end
     end
   end

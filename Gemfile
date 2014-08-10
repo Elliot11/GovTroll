@@ -12,7 +12,7 @@ gem 'font-awesome-rails'
 gem 'foreigner'
 gem 'koala', '~> 1.10.0rc'
 gem 'omniauth-facebook'
-gem "omniauth-google-oauth2"
+gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'pg'
 gem 'rails', '4.1.4'
